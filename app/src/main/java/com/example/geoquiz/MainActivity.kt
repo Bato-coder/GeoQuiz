@@ -3,6 +3,7 @@ package com.example.geoquiz
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 
@@ -11,8 +12,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var trueButton: Button
     private lateinit var falseButton: Button
     private lateinit var questionTextView: TextView
-    private lateinit var nextButton:Button
-    private lateinit var prevButton: Button
+    private lateinit var nextButton: ImageButton
+    private lateinit var prevButton: ImageButton
 
     private val questionBank = listOf(
         Question(R.string.question_australia, true),
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 currentIndex = (currentIndex +1) % questionBank.size
                 updateQuestion()
             } else {
-                currentIndex
+                currentIndex = questionBank.lastIndex
             }
         }
         prevButton.setOnClickListener {
